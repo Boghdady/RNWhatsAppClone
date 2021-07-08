@@ -1,0 +1,14 @@
+{
+  "cSpell.words": [
+    "Fontisto",
+    "Ionicons"
+  ],
+  "separators.enabledSymbols": [
+    "Classes",
+    "Constructors",
+    "Enums",
+    "Functions",
+    "Interfaces",
+    "Namespaces"
+  ]
+}
