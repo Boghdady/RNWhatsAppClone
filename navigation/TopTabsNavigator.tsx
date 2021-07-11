@@ -7,7 +7,7 @@ import { View } from "react-native";
 
 import Colors from "../constants/Colors";
 import useColorScheme from "../hooks/useColorScheme";
-import TabOneScreen from "../screens/TabOneScreen";
+import ChatsScreen from "../screens/ChatsScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 
 import { TopTabParamList, TabOneParamList, TabTwoParamList } from "../types";
@@ -38,7 +38,7 @@ export default function BottomTabNavigator() {
     >
       <TopTabs.Screen
         name="Camera"
-        component={TabOneNavigator}
+        component={ChatsScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Fontisto name="camera" color={color} size={18} />
@@ -49,7 +49,7 @@ export default function BottomTabNavigator() {
 
       <TopTabs.Screen
         name="Chats"
-        component={TabTwoNavigator}
+        component={ChatsScreen}
         options={{
           title: "CHATS",
         }}
@@ -91,7 +91,7 @@ function TabOneNavigator() {
     <TabOneStack.Navigator>
       <TabOneStack.Screen
         name="TabOneScreen"
-        component={TabOneScreen}
+        component={ChatsScreen}
         options={{ header: () => null }}
       />
     </TabOneStack.Navigator>
