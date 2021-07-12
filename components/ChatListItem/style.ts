@@ -6,10 +6,11 @@ const styles = StyleSheet.create({
     flexDirection: "row",
     justifyContent: "space-between",
     backgroundColor: "white",
-    padding: 20,
+    padding: 16,
   },
   leftContainer: {
     flexDirection: "row",
+    alignItems: "center",
   },
   image: {
     height: 70,
@@ -18,7 +19,7 @@ const styles = StyleSheet.create({
     marginRight: 16,
   },
   name: {
-    fontSize: 24,
+    fontSize: 20,
     fontWeight: "bold",
     marginBottom: 10,
   },
@@ -29,6 +30,7 @@ const styles = StyleSheet.create({
 
   date: {
     marginTop: 5,
+    fontSize: 12,
     color: "grey",
     // marginBottom: 20,
   },

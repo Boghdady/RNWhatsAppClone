@@ -10,16 +10,19 @@ import useColorScheme from "../hooks/useColorScheme";
 import ChatsScreen from "../screens/ChatsScreen";
 import TabTwoScreen from "../screens/TabTwoScreen";
 
-import { TopTabParamList, TabOneParamList, TabTwoParamList } from "../types";
+import NotFoundScreen from "../screens/NotFoundScreen";
 
-const TopTabs = createMaterialTopTabNavigator<TopTabParamList>();
+import { TopTabParamList, TabOneParamList, TabTwoParamList } from "../types";
+import Router from "../constants/Routes";
+
+const TopTabs = createMaterialTopTabNavigator();
 
 export default function BottomTabNavigator() {
   const colorScheme = useColorScheme();
 
   return (
     <TopTabs.Navigator
-      initialRouteName="Camera"
+      initialRouteName={Router.Camera}
       tabBarOptions={{
         activeTintColor: Colors[colorScheme].background,
         style: {
@@ -37,8 +40,8 @@ export default function BottomTabNavigator() {
       }}
     >
       <TopTabs.Screen
-        name="Camera"
-        component={ChatsScreen}
+        name={Router.Camera}
+        component={NotFoundScreen}
         options={{
           tabBarIcon: ({ color }) => (
             <Fontisto name="camera" color={color} size={18} />
@@ -48,7 +51,7 @@ export default function BottomTabNavigator() {
       />
 
       <TopTabs.Screen
-        name="Chats"
+        name={Router.Chats}
         component={ChatsScreen}
         options={{
           title: "CHATS",
@@ -56,14 +59,14 @@ export default function BottomTabNavigator() {
       />
 
       <TopTabs.Screen
-        name="Status"
+        name={Router.Status}
         component={TabTwoNavigator}
         options={{
           title: "STATUS",
         }}
       />
       <TopTabs.Screen
-        name="Calls"
+        name={Router.Calls}
         component={TabTwoNavigator}
         options={{
           title: "CALLS",

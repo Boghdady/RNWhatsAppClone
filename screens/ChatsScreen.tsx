@@ -3,21 +3,29 @@ import { StyleSheet, FlatList, View } from "react-native";
 import ChatListItem from "../components/ChatListItem";
 import { ChatRoom, Message, User } from "../types";
 import chatRooms from "../data/ChatRooms";
+import Router from "../constants/Routes";
 
-function chatRoomItem({ item }) {
-  return <ChatListItem chatRoom={item} />;
+function chatRoomItem(item, onPress) {
+  return <ChatListItem chatRoom={item} onPress={onPress} />;
 }
 
 function Separator() {
   return <View style={styles.separator} />;
 }
 
-export default function ChatsScreen() {
+export default function ChatsScreen({ navigation }) {
   return (
     <FlatList
       style={styles.container}
       data={chatRooms}
-      renderItem={chatRoomItem}
+      renderItem={({ item }) =>
+        chatRoomItem(item, () => {
+          navigation.navigate(Router.ChatRoom, {
+            id: item.id,
+            user: item.users[1],
+          });
+        })
+      }
       ItemSeparatorComponent={Separator}
     />
   );

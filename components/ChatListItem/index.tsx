@@ -3,16 +3,18 @@ import { Text, View, Image } from "react-native";
 import { ChatRoom, User } from "../../types";
 import styles from "./style";
 import moment from "moment";
+import { TouchableOpacity } from "react-native-gesture-handler";
 
 export type ChatListItemProps = {
   chatRoom: ChatRoom;
+  onPress: any;
 };
 
 export default function ChatListItem(props: ChatListItemProps) {
-  const { chatRoom } = props;
+  const { chatRoom, onPress } = props;
   const user: User = chatRoom.users[1];
   return (
-    <View style={styles.container}>
+    <TouchableOpacity style={styles.container} onPress={onPress}>
       <View style={styles.leftContainer}>
         <Image source={{ uri: user.imageUri }} style={styles.image} />
         <View>
@@ -25,6 +27,6 @@ export default function ChatListItem(props: ChatListItemProps) {
           {moment(chatRoom.lastMessage.createdAt).format("DD/MM/YYYY")}
         </Text>
       </View>
-    </View>
+    </TouchableOpacity>
   );
 }
